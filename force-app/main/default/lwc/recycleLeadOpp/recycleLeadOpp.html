@@ -1,0 +1,63 @@
+<template>
+       __________________________________<br><br>
+
+    <b>Reciclagem de Leads/Oportunidades</b> <br><br>
+
+    <lightning-radio-group name="object" 
+                           label="Escolha um objeto" 
+                           options={objectOptions} 
+                           value={objectValue} 
+                           type="button" 
+                           onchange ={setObject}
+                           required></lightning-radio-group>
+
+    <lightning-input type="date" 
+                     name="startDate" 
+                     label="Data inicial" 
+                     value ={startDateValue} 
+                     onchange ={setStartDate}
+                     required></lightning-input>
+
+    <lightning-input type ="date" 
+                     name ="endDate"   
+                     label ="Data final"   
+                     value ={endDateValue} 
+                     onchange ={setEndDate}
+                     required></lightning-input>
+
+    <lightning-combobox name ="brands" 
+                        label ="Brands" 
+                        value ={brandValue} 
+                        placeholder ="Escolha uma Brand" 
+                        options ={brandOptions}
+                        onchange ={setBrand}
+                        required
+                        if:true={brandOptionsLoaded}></lightning-combobox>
+
+    <lightning-combobox name ="leadSource" 
+                        label ="Lead Sources" 
+                        value ={leadSourceValue} 
+                        placeholder ="Escolha uma Lead Source" 
+                        options ={leadSourceOptions} 
+                        onchange ={setLeadSource}
+                        if:true={leadSourceOptionsLoaded}></lightning-combobox>
+
+    <lightning-combobox name ="verticals"  
+                        label ="Verticais" 
+                        value ={varticalValue} 
+                        placeholder ="Escolha uma Vertical" 
+                        options ={verticalOptions} 
+                        onchange ={setVertical}
+                        if:true={verticalOptionsLoaded}></lightning-combobox>
+
+    <lightning-input type ="number" 
+                     name ="recycleQuantity"   
+                     label ="Reciclado até quantas vezes: "   
+                     value ={recycleQuantityValue} 
+                     onchange ={setRecycleQuantity}></lightning-input>
+
+    <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_brand" onclick={changePage}>Avançar</button>
+    </footer>
+    
+</template>

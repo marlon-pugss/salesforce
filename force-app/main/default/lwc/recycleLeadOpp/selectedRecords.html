@@ -1,0 +1,38 @@
+<template>
+    __________________________________<br><br>
+
+ <b>Reciclagem de Leads/Oportunidades</b> <br><br>
+
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" alternativetext="Loading" size="large"></lightning-spinner>
+    </template>
+
+    <template if:false={recycled}>
+    <div class="slds-modal__content slds-m-top_medium slds-m-bottom_x-large slds-scrollable--y">
+        Quantidade de registros encontrados: <b>{recordsLength}</b>
+        <div class="slds-p-around_medium lgc-bg" style="height: 500px">
+            <lightning-datatable key-field ="id"
+                                 data ={selectedRecords}
+                                 columns ={selectedRecordsColumns}
+                                 enable-infinite-loading ="false"
+                                 hide-checkbox-column ="true">
+            </lightning-datatable>
+        </div>
+    </div>
+    </template>
+    
+    <template if:true={recycled}>
+        <div align="center">
+            <b>Registros enviados para reciclagem, esse processo pode demorar até 5 minutos!</b>
+        </div>
+    </template>
+
+    <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_brand" onclick={changePage}>Voltar</button>
+
+        <template if:false={recycled}>
+        <button class="slds-button slds-button_brand" onclick={recycle}>Reciclar</button>
+        </template>
+    </footer>
+
+</template>

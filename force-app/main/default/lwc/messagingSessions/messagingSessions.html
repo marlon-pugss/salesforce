@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Minhas Conversas">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+        <template if:true={filteredSessions}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        name="stage"
+                        label="Filtrar por Fase"
+                        value={selectedStage}
+                        options={stageOptions}
+                        onchange={handleStageChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        name="date"
+                        label="Filtrar por Data"
+                        value={selectedDateFilter}
+                        options={dateOptions}
+                        onchange={handleDateChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        name="status"
+                        label="Filtrar por Status"
+                        value={selectedStatus}
+                        options={statusOptions}
+                        onchange={handleStatusChange}>
+                    </lightning-combobox>
+                </div>
+            </div>
+            <lightning-datatable
+                key-field="Id"
+                data={filteredSessions}
+                columns={columns}
+                hide-checkbox-column="true"
+                sorted-direction={sortDirection}
+                sorted-by={sortedBy}
+                onsort={onHandleSort}> <!-- Adiciona o manipulador de evento de ordenação -->
+            </lightning-datatable>
+            <div class="last-update">
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,32 @@
+<template>
+    
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-combobox name        ="refund reason"
+                                label       ="Motivo de Reembolso"
+                                value       ={refundReasonValue}
+                                placeholder ="Selecione um motivo de reembolso"
+                                options     ={refundReasonOptions}
+                                onchange    ={refundReasonChange}
+                                required    =true >
+            </lightning-combobox>
+        </div>
+        
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-combobox name        ="subrefund reason"
+                                label       ="Submotivo de Reembolso"
+                                value       ={refundSubReasonValue}
+                                placeholder ="Selecione um submotivo de reembolso"
+                                options     ={refundSubReasonOptions}
+                                onchange    ={refundSubReasonChange}
+                                required    =true >
+            </lightning-combobox>
+        </div>
+    </div>
+
+    <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick={handleClose}>Cancelar</button>
+        <button class="slds-button slds-button_brand"   onclick={save}>Solicitar</button>
+    </footer>
+
+</template>

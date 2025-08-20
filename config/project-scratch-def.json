@@ -1,0 +1,17 @@
+{
+  "orgName": "Scratch",
+  "edition": "Developer",
+  "features": [],
+  "username": "sf-ea@fluencyacademy.io",
+  "settings": {
+    "orgPreferenceSettings": {
+      "s1DesktopEnabled": true
+    },
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}

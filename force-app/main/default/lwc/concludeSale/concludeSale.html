@@ -1,0 +1,19 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" alternativetext="Loading" size="large"></lightning-spinner>
+    </template>
+
+    <header class="slds-modal__header">
+        <h2 class="slds-modal__title slds-hyphenate">Concluir Venda</h2>
+    </header>
+
+    <div class="slds-modal__content slds-p-around_medium" align="center">
+        Para criar o contrato clique em <b>"Confirmar"</b> <br>
+        Para fechar a tela, clique em <b>"Cancelar"</b>
+    </div>
+    
+    <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick={handleClose}>Cancelar</button>
+        <button class="slds-button slds-button_brand"   onclick={handleConcludeSale}>Confirmar</button>
+    </footer>
+</template>

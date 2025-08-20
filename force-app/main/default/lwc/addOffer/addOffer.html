@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type        ="text"
+                             value       ={searchValue}
+                             label       ="Pesquisar Ofertas"
+                             placeholder ="Nome da Oferta"
+                             onchange    ={searchOffer}>
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-m-top_medium slds-m-bottom_x-large slds-scrollable--y" style="max-height: 350px">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-datatable key-field         ="id"
+                                 data              ={offersList}
+                                 columns           ={offerColumns}
+                                 max-row-selection =1
+                                 onrowselection    ={handleRowSelection}>
+            </lightning-datatable>
+        </div>
+    </div>
+    <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick={handleClose}>Cancelar</button>
+        <button class="slds-button slds-button_brand"   onclick={changePage}>Avançar</button>
+    </footer>
+</template>
